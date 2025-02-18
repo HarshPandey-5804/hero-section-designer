@@ -1,5 +1,4 @@
 
-import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 
 const portraits = [
@@ -15,14 +14,6 @@ const portraits = [
 ];
 
 const HeroSection = () => {
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle subscription logic here
-    console.log("Subscribing email:", email);
-  };
-
   return (
     <div className="min-h-screen bg-navy px-4 py-12 md:px-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -40,23 +31,19 @@ const HeroSection = () => {
             difference. Explore why people turn to this invaluable resource to
             unlock their potential.
           </p>
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md">
+          <div className="flex flex-col sm:flex-row gap-4 max-w-md">
             <input
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               placeholder="example@domain.com"
               className="flex-1 px-6 py-3 rounded-lg bg-navy-light text-white border border-gray-700 focus:outline-none focus:border-accent-teal transition-colors"
-              required
             />
             <button
-              type="submit"
               className="px-8 py-3 rounded-lg bg-accent-green text-white font-semibold flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all group"
             >
               Subscribe
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
             </button>
-          </form>
+          </div>
         </div>
 
         {/* Right Column - Portrait Grid */}
